@@ -1,0 +1,70 @@
+---
+import './index.css'
+
+import Brain from './assets/brain.svg'
+import Chat from './assets/chat-remove.svg'
+import Eye from './assets/eye-empty.svg'
+import Flash from './assets/flash.svg'
+
+const summaryList = [
+  {
+    icon: Flash,
+    title: 'Reaction',
+    result: '80',
+    color: 'red',
+  },
+  {
+    icon: Brain,
+    title: 'Memory',
+    result: '92',
+    color: 'yellow',
+  },
+  {
+    icon: Chat,
+    title: 'Verbal',
+    result: '61',
+    color: 'green',
+  },
+  {
+    icon: Eye,
+    title: 'Visual',
+    result: '73',
+    color: 'blue',
+  },
+]
+---
+
+<main class="flex flex-center">
+  <article class="card">
+    <div class="result">
+      <h3 class="result__title">Your Result</h3>
+      <div class="results__points flex flex-column">
+        <span>76</span>
+        <span>of 100</span>
+      </div>
+      <h2 class="results__grade">Great</h2>
+      <p class="results__description">
+        Your performance exceed 65% of the people conducting the test here!
+      </p>
+    </div>
+
+    <div class="summary">
+      <h2 class="summary__title">Summary</h2>
+      <ul class="summaryList flex flex-wrap">
+        {
+          summaryList.map(({ icon, title, result, color }) => (
+            <li class={`summaryItem flex ${color}`}>
+              <img class="summaryItem__img" src={icon} alt="icon" />
+              <h3 class="summaryItem__title">{title}</h3>
+              <div class="summaryItem__score">
+                {result}
+                <span>/100</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <button class="summary__btn"> Continue</button>
+    </div>
+  </article>
+</main>
